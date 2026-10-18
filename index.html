@@ -98,6 +98,29 @@ footer h4{font:600 14px var(--sans);color:var(--tx);margin-bottom:10px}
 .doc h3{margin:36px 0 10px}.doc p{color:var(--mu);margin:0 0 8px}
 .back{display:inline-block;margin-bottom:28px;padding:8px 0;color:var(--mu)}.back:hover{color:var(--tx)}
 @media(max-width:800px){.fgrid{grid-template-columns:1fr}}
+.abtn{min-height:44px;max-width:150px;padding:0 16px;border:1px solid var(--line);border-radius:var(--r);background:none;color:var(--tx);font:500 14px var(--sans);cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.abtn:hover{background:var(--s2)}
+.av{width:44px;height:44px;border-radius:50%;background:var(--s2);display:grid;place-items:center;font:600 17px var(--sans);flex:none;overflow:hidden}
+.rsum{display:grid;grid-template-columns:220px 1fr;gap:40px;padding:0 0 36px;border-bottom:1px solid var(--line);margin-bottom:28px}
+.avg{font:400 96px/1 var(--serif)}
+.stars{display:inline-flex;gap:2px;color:var(--line);font-size:18px;line-height:1}.stars .on{color:var(--tx)}
+.dist{display:grid;gap:8px;align-content:center}
+.dr{display:grid;grid-template-columns:34px 1fr 30px;gap:12px;align-items:center;font-size:13px;color:var(--mu)}
+.dr i{height:6px;background:var(--s2);border-radius:3px;overflow:hidden}.dr b{display:block;height:100%;background:var(--tx)}
+.rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.rc{background:var(--s1);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:12px}
+.rh{display:flex;gap:12px;align-items:center}.rh b{font-weight:600}.rh span{display:block;font-size:13px;color:var(--mu)}
+.rc p{white-space:pre-wrap;overflow-wrap:anywhere}
+.rc .acts .btn{min-height:40px;padding:0 16px;font-size:13px}
+.tabs{display:flex;gap:8px;margin-top:18px}
+.tab{flex:1;min-height:44px;border:1px solid var(--line);background:none;color:var(--mu);border-radius:var(--r);cursor:pointer;font:500 14px var(--sans)}
+.tab[aria-pressed=true]{color:var(--ib);background:var(--tx);border-color:var(--tx)}
+.pick{display:flex;gap:4px}.pick button{background:none;border:0;font-size:36px;line-height:1;color:var(--line);cursor:pointer;padding:4px}.pick button.on{color:var(--tx)}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--tx);color:var(--ib);padding:12px 20px;border-radius:var(--r);z-index:100;max-width:90vw;text-align:center}
+.prof{display:flex;gap:20px;align-items:center;margin:8px 0 32px}.prof .av{width:76px;height:76px;font-size:30px}
+.nm2{font:400 42px/1 var(--serif);text-transform:uppercase}
+dialog{max-height:92vh;overflow:auto}
+@media(max-width:960px){.rgrid,.rsum{grid-template-columns:1fr}}
 /* product */
 .two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:center}
 .facts{list-style:none;padding:0;margin-top:32px}
@@ -175,10 +198,11 @@ dialog .card{width:100%;margin:18px 0}
     <li><a href="#catalog">Каталог</a></li>
     <li><a href="#how">Как это работает</a></li>
     <li><a href="#why">Преимущества</a></li>
+    <li><a href="#reviews">Отзывы</a></li>
     <li><a href="#custom">Персонализация</a></li>
    </ul>
   </nav>
-  <div class="tools"><a class="btn p" href="#order">Заказать</a><button class="tbtn" id="theme" type="button" aria-label="Включить светлую тему"><svg class="sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></svg></button>
+  <div class="tools"><a class="btn p" href="#order">Заказать</a><button class="abtn" id="accBtn" type="button">Войти</button><button class="tbtn" id="theme" type="button" aria-label="Включить светлую тему"><svg class="sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></svg></button>
   <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Открыть меню">
    <svg width="20" height="14" viewBox="0 0 20 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M0 1h20M0 7h20M0 13h20"/></svg>
   </button></div>
@@ -279,6 +303,14 @@ dialog .card{width:100%;margin:18px 0}
  </div>
 </section>
 
+<section id="reviews">
+ <div class="wrap">
+  <div class="head"><h2>Отзывы клиентов</h2><button class="btn p" id="revBtn" type="button">Оставить отзыв</button></div>
+  <div class="rsum" id="rsum" hidden><div><div class="avg" id="avg"></div><div id="avgS"></div><div class="mu" id="cnt"></div></div><div class="dist" id="dist"></div></div>
+  <p class="mu" id="rmsg" role="status"></p>
+  <div class="rgrid" id="rlist"></div>
+ </div>
+</section>
 <section class="cta">
  <div class="wrap">
   <h2>Пора познакомиться иначе</h2>
@@ -312,6 +344,17 @@ dialog .card{width:100%;margin:18px 0}
  </div>
 </section>
 </main>
+<main id="acct" hidden><div class="wrap doc">
+ <a class="back" href="#top">На главную</a><h1>Личный кабинет</h1>
+ <div id="pGuest"><p class="mu" style="margin-bottom:20px">Чтобы открыть личный кабинет, войдите в аккаунт.</p><button class="btn p" id="pLogin" type="button">Войти или зарегистрироваться</button></div>
+ <div id="pBox" hidden>
+  <div class="prof"><div id="pAvW"></div><div><div class="nm2" id="pName"></div><div class="mu" id="pMail"></div><div class="mu" id="pDate"></div></div></div>
+  <div class="note" id="pVer" hidden style="margin:0 0 28px">Почта не подтверждена. Проверьте письмо от сервиса входа, иногда оно попадает в «Спам». Без подтверждения нельзя публиковать отзывы.<div class="acts" style="margin-top:12px"><button class="btn" id="pResend" type="button">Отправить письмо снова</button><button class="btn" id="pCheck" type="button">Я подтвердил(а)</button></div></div>
+  <form id="pForm" novalidate class="ctl" style="max-width:420px;margin-top:0"><label>Имя<input id="pInName" maxlength="60" autocomplete="name"></label><p class="err" id="pErr" role="alert"></p><button class="btn" type="submit">Сохранить имя</button></form>
+  <h3 style="margin:44px 0 16px">Мои отзывы</h3><div class="rgrid" id="myRev"></div>
+  <div class="acts" style="margin-top:48px"><button class="btn" id="pOut" type="button">Выйти</button><button class="btn" id="pDel" type="button" style="color:var(--er);border-color:var(--er)">Удалить аккаунт</button></div>
+ </div>
+</div></main>
 <main id="legal" hidden><div class="wrap doc"><a class="back" href="#top">На главную</a><h1 id="dT2"></h1><div id="dBody"></div><p class="note" id="dNote"></p></div></main>
 
 <footer>
@@ -333,6 +376,35 @@ dialog .card{width:100%;margin:18px 0}
  <div class="acts"><button class="btn p" id="dOrder" type="button">Заказать</button><button class="btn" id="dClose" type="button">Закрыть</button></div>
 </dialog>
 
+<dialog id="authD" aria-labelledby="aT">
+ <h3 id="aT">Вход в аккаунт</h3>
+ <div class="tabs"><button type="button" class="tab" data-m="in" aria-pressed="true">Вход</button><button type="button" class="tab" data-m="up" aria-pressed="false">Регистрация</button></div>
+ <div class="ctl" style="margin-top:18px">
+  <button class="btn" id="gBtn" type="button">Продолжить с Google</button>
+  <button class="btn" id="apBtn" type="button">Продолжить с Apple</button>
+  <p class="mu" style="text-align:center;font-size:13px">или по почте</p>
+  <form id="aForm" novalidate style="margin:0;max-width:none">
+   <label id="aNameL" hidden>Имя<input id="aName" maxlength="60" autocomplete="name"></label>
+   <label>Электронная почта<input id="aMail" type="email" autocomplete="email" maxlength="120"></label>
+   <label>Пароль<input id="aPass" type="password" autocomplete="current-password" maxlength="100"></label>
+   <p class="err" id="aErr" role="alert"></p>
+   <button class="btn p" id="aGo" type="submit">Войти</button>
+   <button class="btn" id="aForgot" type="button" style="border:0;min-height:36px">Забыли пароль?</button>
+  </form>
+  <button class="btn" id="aClose" type="button">Закрыть</button>
+ </div>
+</dialog>
+<dialog id="revD" aria-labelledby="rT">
+ <h3 id="rT">Ваш отзыв</h3>
+ <form id="rForm" novalidate class="ctl" style="margin-top:18px;max-width:none">
+  <div><div class="mu" id="rl" style="font-size:14px;margin-bottom:6px">Оценка</div><div class="pick" id="pick" role="radiogroup" aria-labelledby="rl"></div></div>
+  <label>Текст отзыва<textarea id="rText" maxlength="1000" style="min-height:140px"></textarea></label>
+  <p class="fnote" id="rCnt" style="text-align:left">0 / 1000</p>
+  <p class="err" id="rErr" role="alert"></p>
+  <div class="acts"><button class="btn p" id="rGo" type="submit">Опубликовать</button><button class="btn" id="rClose" type="button">Отмена</button></div>
+ </form>
+</dialog>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 <script>
 /* ===== CONFIG: заполните перед запуском ===== */
 const CONFIG={
@@ -443,6 +515,128 @@ $("#form").addEventListener("submit",e=>{
 });
 $("#tgGo").addEventListener("click",()=>{$("#outNote").textContent="Telegram открыт. Проверьте сообщение и нажмите «Отправить», чтобы передать заявку."});
 $("#copy").onclick=async()=>{const b=$("#copy");try{await navigator.clipboard.writeText($("#outText").textContent);b.textContent="Скопировано"}catch(_){b.textContent="Выделите текст и скопируйте вручную"}setTimeout(()=>b.textContent="Скопировать заявку",2500)};
+/* ===== аккаунты и отзывы (Firebase) ===== */
+const FIREBASE_CONFIG={apiKey:"AIzaSyCvq2NbG6pE4-9kAU38DDuEF2MLvUH9zCQ",authDomain:"sprlryger-3440e.firebaseapp.com",projectId:"sprlryger-3440e",appId:"1:876620258236:web:67ea9b957381abff8c69b9"}; /* ВЛАДЕЛЬЦУ: вставить из консоли Firebase, см. FIREBASE-SETUP.md */
+const ON=!!FIREBASE_CONFIG.apiKey,FBU=m=>`https://www.gstatic.com/firebasejs/10.14.1/firebase-${m}.js`;
+let F=null,user=null,isAdmin=false,myRating=0,editing=false,REV=[];
+const toast=t=>{const e=$("#toast");e.textContent=t;e.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>e.hidden=true,4500)};
+const ERR={"auth/invalid-credential":"Неверная почта или пароль.","auth/wrong-password":"Неверная почта или пароль.","auth/user-not-found":"Неверная почта или пароль.","auth/email-already-in-use":"Эта почта уже зарегистрирована. Попробуйте войти.","auth/weak-password":"Пароль слишком простой: нужно не менее 8 символов.","auth/invalid-email":"Проверьте адрес почты.","auth/too-many-requests":"Слишком много попыток. Подождите немного и повторите.","auth/popup-closed-by-user":"Окно входа закрыто.","auth/cancelled-popup-request":"","auth/popup-blocked":"Браузер заблокировал окно входа. Разрешите всплывающие окна.","auth/network-request-failed":"Нет связи с сервером. Проверьте интернет.","auth/requires-recent-login":"Для этого действия войдите в аккаунт заново.","auth/account-exists-with-different-credential":"Эта почта уже используется с другим способом входа.","auth/operation-not-allowed":"Этот способ входа ещё не включён владельцем сайта.","auth/unauthorized-domain":"Адрес сайта не разрешён в настройках Firebase.","permission-denied":"Нет прав на это действие. Подтвердите почту и войдите заново.","noname":"Сначала укажите имя в личном кабинете."};
+const em=e=>ERR[e&&e.code]??"Не удалось выполнить действие. Попробуйте ещё раз.";
+const avEl=(n,ph)=>{const d=document.createElement("div");d.className="av";if(ph&&/^https:\/\//.test(ph)){const i=document.createElement("img");i.src=ph;i.alt="";i.referrerPolicy="no-referrer";i.style.cssText="width:100%;height:100%;object-fit:cover";d.append(i)}else d.textContent=(n||"?").trim().charAt(0).toUpperCase();return d};
+const stars=n=>{const s=document.createElement("span");s.className="stars";s.setAttribute("role","img");s.setAttribute("aria-label","Оценка "+n+" из 5");for(let i=1;i<=5;i++){const x=document.createElement("span");x.textContent="★";if(i<=Math.round(n))x.className="on";s.append(x)}return s};
+const dfmt=d=>d&&d.toLocaleDateString?d.toLocaleDateString("ru-RU",{day:"numeric",month:"long",year:"numeric"}):"";
+const plural=n=>n%10===1&&n%100!==11?"отзыв":([2,3,4].includes(n%10)&&![12,13,14].includes(n%100)?"отзыва":"отзывов");
+const btn=(t,f)=>{const b=document.createElement("button");b.type="button";b.className="btn";b.textContent=t;b.onclick=f;return b};
+function card(r){
+ const c=document.createElement("article"),h=document.createElement("div"),w=document.createElement("div"),b=document.createElement("b"),d=document.createElement("span"),p=document.createElement("p");
+ c.className="rc";h.className="rh";b.textContent=r.name;d.textContent=dfmt(r.createdAt&&r.createdAt.toDate&&r.createdAt.toDate());p.textContent=r.text;
+ w.append(b,d);h.append(avEl(r.name,r.photo),w);c.append(h,stars(r.rating),p);
+ const own=user&&r.uid===user.uid;
+ if(own||isAdmin){const a=document.createElement("div");a.className="acts";if(own)a.append(btn("Изменить",openRev));a.append(btn("Удалить",()=>delRev(r.id)));c.append(a)}
+ return c}
+function renderReviews(){
+ const l=$("#rlist"),n=REV.length;l.replaceChildren();$("#rsum").hidden=!n;
+ if(ON)$("#rmsg").textContent=n?"":"Пока нет отзывов. Станьте первым.";
+ if(!n)return;
+ const cnt=[0,0,0,0,0,0];REV.forEach(r=>cnt[r.rating]++);const avg=REV.reduce((a,r)=>a+r.rating,0)/n;
+ $("#avg").textContent=avg.toFixed(1).replace(".",",");$("#avgS").replaceChildren(stars(avg));$("#cnt").textContent=n+" "+plural(n);
+ const ds=$("#dist");ds.replaceChildren();
+ for(let i=5;i>=1;i--){const r=document.createElement("div"),a=document.createElement("span"),t=document.createElement("i"),f=document.createElement("b"),k=document.createElement("span");r.className="dr";a.textContent=i+" ★";f.style.width=Math.round(cnt[i]/n*100)+"%";t.append(f);k.textContent=cnt[i];r.append(a,t,k);ds.append(r)}
+ REV.forEach(r=>l.append(card(r)))}
+async function loadReviews(){
+ if(!F)return;
+ try{const {collection,getDocs,query,orderBy,limit}=F.fs;
+  const q=await getDocs(query(collection(F.db,"reviews"),orderBy("createdAt","desc"),limit(200)));
+  REV=q.docs.map(d=>({id:d.id,...d.data()})).filter(r=>Number.isInteger(r.rating)&&r.rating>=1&&r.rating<=5&&typeof r.text==="string"&&typeof r.name==="string");
+  renderReviews();renderAcct()}
+ catch(e){$("#rmsg").textContent="Не удалось загрузить отзывы. Попробуйте позже."}}
+async function delRev(id){
+ if(!confirm("Удалить этот отзыв?"))return;
+ try{await F.fs.deleteDoc(F.fs.doc(F.db,"reviews",id));toast("Отзыв удалён.");await loadReviews()}catch(e){toast(em(e))}}
+function paintUser(){$("#accBtn").textContent=user?(user.displayName||"Кабинет"):"Войти"}
+function renderAcct(){
+ const ok=!!user;$("#pBox").hidden=!ok;$("#pGuest").hidden=ok;if(!ok)return;
+ $("#pAvW").replaceChildren(avEl(user.displayName,user.photoURL));
+ $("#pName").textContent=user.displayName||"Без имени";$("#pMail").textContent=user.email||"";
+ $("#pDate").textContent="Дата регистрации: "+dfmt(new Date(user.metadata.creationTime));
+ $("#pInName").value=user.displayName||"";$("#pVer").hidden=user.emailVerified;
+ const my=$("#myRev"),mine=REV.filter(r=>r.uid===user.uid);my.replaceChildren();
+ if(!mine.length){const p=document.createElement("p");p.className="mu";p.textContent="У вас пока нет отзывов.";my.append(p)}else mine.forEach(r=>my.append(card(r)))}
+async function initFb(){
+ if(!ON){$("#rmsg").textContent="Раздел отзывов подключится после настройки сервиса входа и базы данных. Сейчас он недоступен.";return}
+ try{const [a,au,fs]=await Promise.all([import(FBU("app")),import(FBU("auth")),import(FBU("firestore"))]);
+  const app=a.initializeApp(FIREBASE_CONFIG);F={au,fs,auth:au.getAuth(app),db:fs.getFirestore(app)};
+  au.onAuthStateChanged(F.auth,async u=>{user=u;isAdmin=false;if(u){try{isAdmin=!!(await u.getIdTokenResult()).claims.admin}catch(_){}}paintUser();renderReviews();renderAcct()});
+  await loadReviews()}
+ catch(e){F=null;$("#rmsg").textContent="Не удалось подключиться к сервису. Обновите страницу позже."}}
+/* вход и регистрация */
+const authD=$("#authD");let mode="in";
+const setMode=m=>{mode=m;document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-pressed",t.dataset.m===m));$("#aNameL").hidden=m!=="up";$("#aGo").textContent=m==="up"?"Создать аккаунт":"Войти";$("#aT").textContent=m==="up"?"Регистрация":"Вход в аккаунт";$("#aPass").autocomplete=m==="up"?"new-password":"current-password";$("#aForgot").hidden=m==="up";$("#aErr").textContent=""};
+function openAuth(m){
+ if(!ON)return toast("Вход пока недоступен: владелец сайта ещё не подключил сервис.");
+ if(!F)return toast("Сервис входа загружается или недоступен. Повторите через несколько секунд.");
+ setMode(m||"in");authD.showModal()}
+document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>setMode(t.dataset.m));
+$("#aClose").onclick=()=>authD.close();
+$("#accBtn").onclick=()=>user?(location.hash="#/account"):openAuth("in");
+$("#pLogin").onclick=()=>openAuth("in");
+const prov=async p=>{try{await F.au.signInWithPopup(F.auth,p);authD.close();toast("Вы вошли в аккаунт.")}catch(e){$("#aErr").textContent=em(e)}};
+$("#gBtn").onclick=()=>F&&prov(new F.au.GoogleAuthProvider());
+$("#apBtn").onclick=()=>{if(!F)return;const p=new F.au.OAuthProvider("apple.com");p.addScope("email");p.addScope("name");prov(p)};
+const MAIL=/^\S+@\S+\.\S+$/;
+$("#aForm").addEventListener("submit",async e=>{
+ e.preventDefault();const mail=$("#aMail").value.trim(),pw=$("#aPass").value,nm=$("#aName").value.trim(),er=$("#aErr");er.textContent="";
+ if(!F)return;
+ if(!MAIL.test(mail))return er.textContent="Введите корректную почту.";
+ if(mode==="up"){if(nm.length<2)return er.textContent="Введите имя: не короче 2 символов.";if(pw.length<8)return er.textContent="Пароль: не менее 8 символов."}
+ else if(!pw)return er.textContent="Введите пароль.";
+ $("#aGo").disabled=true;
+ try{if(mode==="up"){const c=await F.au.createUserWithEmailAndPassword(F.auth,mail,pw);await F.au.updateProfile(c.user,{displayName:nm});await F.au.sendEmailVerification(c.user);await c.user.getIdToken(true);user=F.auth.currentUser;paintUser();renderAcct();authD.close();toast("Аккаунт создан. Мы отправили письмо для подтверждения почты.")}
+  else{await F.au.signInWithEmailAndPassword(F.auth,mail,pw);authD.close();toast("Вы вошли в аккаунт.")}}
+ catch(x){er.textContent=em(x)}finally{$("#aGo").disabled=false}});
+$("#aForgot").onclick=async()=>{const mail=$("#aMail").value.trim(),er=$("#aErr");
+ if(!MAIL.test(mail))return er.textContent="Введите почту, на которую придёт письмо для смены пароля.";
+ try{await F.au.sendPasswordResetEmail(F.auth,mail)}catch(_){}
+ er.textContent="Если такой аккаунт есть, мы отправили письмо со ссылкой для смены пароля."};
+/* отзывы: форма */
+const pick=$("#pick"),revD=$("#revD");
+for(let i=1;i<=5;i++){const b=document.createElement("button");b.type="button";b.textContent="★";b.setAttribute("role","radio");b.setAttribute("aria-label",i+" из 5");b.dataset.v=i;pick.append(b)}
+const setR=v=>{myRating=v;[...pick.children].forEach(b=>{b.classList.toggle("on",+b.dataset.v<=v);b.setAttribute("aria-checked",+b.dataset.v===v)})};
+pick.onclick=e=>{const b=e.target.closest("button");if(b)setR(+b.dataset.v)};
+$("#rText").oninput=e=>$("#rCnt").textContent=e.target.value.length+" / 1000";
+function openRev(){
+ if(!user)return openAuth("in");
+ if(!user.emailVerified)return toast("Сначала подтвердите почту: письмо отправлено при регистрации. Подробности в личном кабинете.");
+ const mine=REV.find(r=>r.uid===user.uid);editing=!!mine;setR(mine?mine.rating:0);$("#rText").value=mine?mine.text:"";$("#rCnt").textContent=$("#rText").value.length+" / 1000";
+ $("#rErr").textContent="";$("#rT").textContent=mine?"Редактировать отзыв":"Ваш отзыв";$("#rGo").textContent=mine?"Сохранить":"Опубликовать";revD.showModal()}
+$("#revBtn").onclick=()=>ON?openRev():toast("Отзывы пока недоступны: владелец сайта ещё не подключил сервис.");
+$("#rClose").onclick=()=>revD.close();
+[authD,revD].forEach(d=>d.addEventListener("click",e=>{if(e.target===d)d.close()}));
+$("#rForm").addEventListener("submit",async e=>{
+ e.preventDefault();const t=$("#rText").value.trim(),er=$("#rErr");er.textContent="";
+ if(!myRating)return er.textContent="Поставьте оценку от 1 до 5.";
+ if(t.length<10)return er.textContent="Напишите хотя бы 10 символов.";
+ if(t.length>1000)return er.textContent="Не больше 1000 символов.";
+ $("#rGo").disabled=true;
+ try{const name=(user.displayName||"").trim();if(!name)throw{code:"noname"};
+  await user.getIdToken(true);const {doc,setDoc,updateDoc,serverTimestamp}=F.fs,ref=doc(F.db,"reviews",user.uid);
+  if(editing)await updateDoc(ref,{rating:myRating,text:t,updatedAt:serverTimestamp()});
+  else await setDoc(ref,{uid:user.uid,name,photo:user.photoURL||"",rating:myRating,text:t,createdAt:serverTimestamp(),updatedAt:serverTimestamp()});
+  revD.close();toast(editing?"Отзыв обновлён.":"Спасибо! Ваш отзыв опубликован.");await loadReviews()}
+ catch(x){er.textContent=em(x)}finally{$("#rGo").disabled=false}});
+/* личный кабинет */
+$("#pForm").addEventListener("submit",async e=>{
+ e.preventDefault();const n=$("#pInName").value.trim(),er=$("#pErr");er.textContent="";
+ if(n.length<2||n.length>60)return er.textContent="Имя: от 2 до 60 символов.";
+ try{await F.au.updateProfile(user,{displayName:n});await user.getIdToken(true);paintUser();renderAcct();toast("Имя сохранено.")}catch(x){er.textContent=em(x)}});
+$("#pOut").onclick=async()=>{try{await F.au.signOut(F.auth);location.hash="#top";toast("Вы вышли из аккаунта.")}catch(x){toast(em(x))}};
+$("#pResend").onclick=async()=>{try{await F.au.sendEmailVerification(user);toast("Письмо отправлено.")}catch(x){toast(em(x))}};
+$("#pCheck").onclick=async()=>{try{await user.reload();await user.getIdToken(true);renderAcct();toast(user.emailVerified?"Почта подтверждена.":"Почта пока не подтверждена.")}catch(x){toast(em(x))}};
+$("#pDel").onclick=async()=>{
+ if(!confirm("Удалить аккаунт и ваш отзыв? Это действие нельзя отменить."))return;
+ try{if(REV.some(r=>r.uid===user.uid))await F.fs.deleteDoc(F.fs.doc(F.db,"reviews",user.uid));
+  await F.au.deleteUser(user);location.hash="#top";toast("Аккаунт удалён.")}catch(x){toast(em(x))}};
+initFb();
 /* юридические страницы: маршруты #/terms, #/privacy, #/cookies */
 const OW=CONFIG.owner,V=(x,f)=>x||f,TGH="@"+c.telegramUser;
 const FILL=n=>"[владельцу сайта указать: "+n+"]";
@@ -455,36 +649,41 @@ terms:{t:"Условия использования",b:[
 ["Подтверждение заказа","Заявка — это запрос на расчёт, а не заказ. Заказ считается подтверждённым, когда продавец в переписке назвал модель, количество, стоимость и сроки, а вы с ними согласились."],
 ["Цены и условия оплаты","Цены на сайте не указаны. Стоимость, способ оплаты и сроки сообщает продавец в переписке до подтверждения заказа. Условия возврата и гарантии сайт не устанавливает: их согласуют с продавцом."],
 ["Персонализация карточек","Оформление согласуется с продавцом. Изображение, которое вы загружаете на сайте, видно только вам в браузере. Чтобы использовать его в заказе, отправьте файл продавцу в чат. Вы подтверждаете, что вправе использовать присланные изображения и тексты."],
+["Аккаунт и отзывы","Отзыв должен быть правдивым и основанным на вашем опыте. Нельзя публиковать оскорбления, спам, рекламу и чужие данные. На один аккаунт приходится один отзыв, его можно изменить или удалить. Владелец сайта может удалить отзыв, нарушающий эти правила."],
 ["Интеллектуальная собственность","Логотип, дизайн и тексты сайта принадлежат владельцу или используются с разрешения правообладателей. Копировать их без согласия нельзя."],
 ["Ограничения использования","Нельзя использовать сайт в незаконных целях, мешать его работе или отправлять через форму чужие персональные данные без согласия их владельца."],
 ["Контакт для вопросов",`Telegram ${TGH}, телефоны ${c.phones.map(fmt).join(", ")}.`],
 ["Порядок обновления",`Условия могут меняться. Действует версия, опубликованная на этой странице. Последнее обновление: ${OW.updated}.`]]},
 privacy:{t:"Политика конфиденциальности",b:[
-["Какие данные вы можете ввести","В форме заказа: имя, контакт для связи, комментарий, модель и количество. В конструкторе: имя и должность для карточки. Мы просим только то, что нужно для заявки."],
+["Какие данные вы можете ввести","В форме заказа: имя, контакт для связи, комментарий, модель и количество. В конструкторе: имя и должность для карточки. Мы просим только то, что нужно для заявки. При регистрации: имя, почта и пароль (пароль хранит только сервис входа, в зашифрованном виде) либо данные профиля Google или Apple. В отзыве: оценка, текст, ваше имя и аватар из профиля."],
 ["Зачем нужны данные","Чтобы подготовить сообщение с заявкой и чтобы продавец мог связаться с вами по заказу."],
-["Как обрабатываются заявки","У сайта нет сервера для заявок и базы данных, он их не хранит. Текст собирается в вашем браузере и уходит дальше только тогда, когда вы сами нажимаете «Отправить» в Telegram."],
+["Как обрабатываются заявки","Заявки сайт не хранит: у него нет для них сервера и базы. Текст собирается в вашем браузере и уходит дальше только тогда, когда вы сами нажимаете «Отправить» в Telegram."],
+["Аккаунты и отзывы","Вход и отзывы обслуживает Google Firebase (Authentication и Firestore). Там хранятся ваша почта, имя, дата регистрации и отзыв. Отзыв с именем, аватаром, оценкой и датой публикации виден всем посетителям. Отзыв можно изменить или удалить, а аккаунт удалить в личном кабинете."],
 ["Передача данных в Telegram",`Кнопка «Продолжить в Telegram» передаёт подготовленный текст в Telegram, в чат с ${TGH}. Дальше действуют правила Telegram.`],
 ["Сторонние сервисы","Основной шрифт загружается с Google Fonts, поэтому Google получает ваш IP-адрес и сведения о браузере. Хостинг сайта может вести технические журналы посещений. Ссылки на Telegram, Instagram и WhatsApp ведут на сайты этих сервисов, после перехода действуют их правила. Аналитики и рекламы на сайте нет."],
-["Сколько хранятся данные",`В вашем браузере сайт сохраняет только выбранную тему (localStorage). Данные форм и загруженное изображение нигде не сохраняются и исчезают при обновлении страницы. Срок хранения переписки в Telegram: ${V(OW.retention,FILL("срок хранения"))}.`],
+["Сколько хранятся данные",`В вашем браузере сайт сохраняет выбранную тему (localStorage) и, если вы вошли в аккаунт, данные сессии Firebase. Данные форм и загруженное изображение нигде не сохраняются и исчезают при обновлении страницы. Срок хранения переписки в Telegram: ${V(OW.retention,FILL("срок хранения"))}.`],
 ["Как защищены данные","Введённый текст выводится на странице как обычный текст, а в ссылку для Telegram попадает в закодированном виде. В коде сайта нет секретных ключей. Загруженное изображение не покидает ваше устройство. Абсолютной защиты не бывает, поэтому не отправляйте паспортные, платёжные и другие чувствительные данные."],
 ["Как обратиться",`По вопросам обработки данных пишите в Telegram ${TGH}. Оператор: ${V(OW.name,FILL("имя или наименование"))}. Адрес: ${V(OW.address,FILL("адрес"))}. Почта: ${V(OW.email,FILL("почта"))}.`],
 ["Удаление данных",`Попросить удалить переписку или данные заказа можно в Telegram ${TGH}. Данные в браузере вы стираете сами в настройках браузера. Удаление сообщений у получателя зависит от его решения, правил Telegram и применимого права.`]],n:"Документ описывает реальную работу сайта, но не заменяет консультацию юриста: требования зависят от места ведения бизнеса и аудитории."},
 cookies:{t:"Политика использования cookie",b:[
-["Коротко","Сайт сам не устанавливает файлы cookie. Аналитики, рекламы и сторонних виджетов на нём нет, поэтому баннер согласия не нужен."],
-["Что используется","В localStorage браузера хранится одно значение «theme»: выбранная вами светлая или тёмная тема. Это не cookie, оно не отправляется на сервер с запросами. Значение записывается только после того, как вы сами переключили тему."],
+["Коротко","Сайт сам не устанавливает файлы cookie. Аналитики и рекламы на нём нет, поэтому баннер согласия не нужен. Вход в аккаунт использует хранилище браузера, см. ниже."],
+["Что используется","В localStorage браузера хранится одно значение «theme»: выбранная вами светлая или тёмная тема. Это не cookie, оно не отправляется на сервер с запросами. Значение записывается только после того, как вы сами переключили тему. Если вы вошли в аккаунт, сервис Firebase хранит в браузере данные сессии, чтобы вы оставались в аккаунте. Это техническая необходимость входа."],
 ["Внешние ресурсы","Шрифт загружается с Google Fonts. Это запрос к серверам Google, который передаёт им ваш IP-адрес. Хостинг и внешние сервисы могут вести собственные журналы и использовать свои технологии, сайт этим не управляет."],
 ["Как управлять настройками","Тему меняет переключатель в шапке. Данные сайта, включая сохранённую тему, можно стереть в настройках браузера. Там же можно заблокировать cookie сторонних сервисов."],
-["Что перестанет работать","Если запретить хранение, сайт будет работать полностью. Пропадёт только запоминание темы: при каждом визите она будет выбираться по настройкам вашей системы."],
+["Что перестанет работать","Если запретить хранение, просмотр сайта и заказ продолжат работать. Тема будет выбираться по настройкам вашей системы, а вход в аккаунт может не сохраняться или не работать."],
 ["Изменения",`Если на сайт добавят аналитику или рекламу, документ обновят, а согласие запросят до их включения. Обновлено: ${OW.updated}.`]]}};
-const home=$("#top"),legal=$("#legal"),DT=document.title;
+const home=$("#top"),legal=$("#legal"),acct=$("#acct"),DT=document.title;
+const vin=el=>{el.classList.remove("vin");void el.offsetWidth;el.classList.add("vin")};
 function route(){
- const h=location.hash,m=h.match(/^#\/(terms|privacy|cookies)$/);
- if(m){const d=DOCS[m[1]],b=$("#dBody");$("#dT2").textContent=d.t;b.replaceChildren();
-  d.b.forEach(([a,t])=>{const h3=document.createElement("h3");h3.textContent=a;const p=document.createElement("p");p.textContent=t;b.append(h3,p)});
-  $("#dNote").textContent=d.n||"";home.hidden=true;legal.hidden=false;document.title=d.t+" — NFC-визитки";
-  scrollTo(0,0);legal.classList.remove("vin");void legal.offsetWidth;legal.classList.add("vin");return}
- const was=!legal.hidden;legal.hidden=true;home.hidden=false;document.title=DT;
- if(was){home.classList.remove("vin");void home.offsetWidth;home.classList.add("vin");const el=h.length>1?document.getElementById(h.slice(1)):null;requestAnimationFrame(()=>el&&el!==home?el.scrollIntoView():scrollTo(0,0))}
+ const h=location.hash,m=h.match(/^#\/(terms|privacy|cookies)$/),ac=h==="#/account";
+ if(m||ac){home.hidden=true;legal.hidden=!m;acct.hidden=!ac;
+  if(m){const d=DOCS[m[1]],b=$("#dBody");$("#dT2").textContent=d.t;b.replaceChildren();
+   d.b.forEach(([a,t])=>{const h3=document.createElement("h3");h3.textContent=a;const p=document.createElement("p");p.textContent=t;b.append(h3,p)});
+   $("#dNote").textContent=d.n||"";document.title=d.t+" — NFC-визитки";vin(legal)}
+  else{document.title="Личный кабинет — NFC-визитки";renderAcct();vin(acct)}
+  scrollTo(0,0);return}
+ const was=!legal.hidden||!acct.hidden;legal.hidden=true;acct.hidden=true;home.hidden=false;document.title=DT;
+ if(was){vin(home);const el=h.length>1?document.getElementById(h.slice(1)):null;requestAnimationFrame(()=>el&&el!==home?el.scrollIntoView():scrollTo(0,0))}
 }
 addEventListener("hashchange",route);route();
 </script>
