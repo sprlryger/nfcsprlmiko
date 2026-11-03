@@ -519,7 +519,7 @@ $("#form").addEventListener("submit",e=>{e.preventDefault();try{submitOrder()}ca
 $("#tgGo").addEventListener("click",()=>{$("#outNote").textContent="Telegram открыт. Проверьте сообщение и нажмите «Отправить», чтобы передать заявку."});
 $("#copy").onclick=async()=>{const b=$("#copy");try{await navigator.clipboard.writeText($("#outText").textContent);b.textContent="Скопировано"}catch(_){b.textContent="Выделите текст и скопируйте вручную"}setTimeout(()=>b.textContent="Скопировать заявку",2500)};
 /* ===== аккаунты и отзывы (Firebase) ===== */
-const FIREBASE_CONFIG={apiKey:"AIzaSyCvq2NbG6pE4-9kAU38DDuEF2MLvUH9zCQ",authDomain:"sprlryger-3440e.firebaseapp.com",projectId:"sprlryger-3440e",appId:"1:876620258236:web:67ea9b957381abff8c69b9"}; /* ВЛАДЕЛЬЦУ: вставить из консоли Firebase, см. FIREBASE-SETUP.md */
+const FIREBASE_CONFIG={apiKey:"AIzaSyCUJWRlY8BDsmXGv8Dl0nsWrs9sH_Vl68k",authDomain:"smtap-e6aa3.firebaseapp.com",projectId:"smtap-e6aa3",storageBucket:"smtap-e6aa3.firebasestorage.app",messagingSenderId:"166911226845",appId:"1:166911226845:web:511efbb2a3cf7ab1defc34",measurementId:"G-DW7JQ1B3W4"}; /* ВЛАДЕЛЬЦУ: вставить из консоли Firebase, см. FIREBASE-SETUP.md */
 const APPCHECK_KEY=""; /* ключ reCAPTCHA v3 для Firebase App Check, см. SECURITY-AUDIT.md */
 const ON=!!FIREBASE_CONFIG.apiKey,FBU=m=>`https://www.gstatic.com/firebasejs/10.14.1/firebase-${m}.js`;
 let F=null,user=null,isAdmin=false,myRating=0,editing=false,REV=[],ready=false;
