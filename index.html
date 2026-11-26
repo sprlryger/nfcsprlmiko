@@ -330,6 +330,7 @@ form{display:grid;gap:20px}
 .sum dt{color:var(--mu)}
 .sum .tot{margin-top:18px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline}
 .sum .tot b{font:400 48px/1 var(--serif)}
+.sum .pay{margin-top:20px;padding-top:18px;border-top:1px solid var(--line);font-size:14px}.sum .pay b{display:block;font-weight:600;margin-bottom:6px}.sum .pay p{color:var(--mu);margin:0 0 12px}.sum .pay img{width:100%;max-width:240px;border-radius:12px;display:block}
 .sum .sm{margin-top:10px;font-size:12px;color:var(--mu)}
 .out{margin-top:8px;padding:24px;border-radius:var(--R);border:1px solid var(--line2);background:var(--s1)}
 .out ol{padding-left:20px;display:grid;gap:8px;margin:14px 0 18px;color:var(--mu)}
@@ -618,7 +619,7 @@ dialog .card{width:100%;margin:18px 0}
    <details><summary>Что делать, если контакты изменятся?<i></i></summary><p>Если карточка ведёт на вашу страницу с контактами (например, мультиссылку), достаточно обновить эту страницу, и карточка сразу будет показывать новые данные. Перепечатывать ничего не придётся.</p></details>
    <details><summary>Сколько времени занимает изготовление?<i></i></summary><p>Обычно 2–5 дней после того, как мы согласуем с вами модель, количество и ссылку для записи.</p></details>
    <details><summary>Можно заказать карточки для всей команды?<i></i></summary><p>Да. Укажите количество в заявке, и мы рассчитаем стоимость для вашей команды.</p></details>
-   <details><summary>Как оплатить и получить заказ?<i></i></summary><p>Способ оплаты и получения обсудим в переписке в Instagram после того, как вы отправите заявку.</p></details>
+   <details><summary>Как оплатить и получить заказ?<i></i></summary><p>После заявки мы подтверждаем заказ и стоимость доставки в Директе. Оплата — по QR-коду ELQR из приложения любого банка Кыргызстана (Оптима, MBank, Bakai и др.): QR есть в блоке «Оформить заявку». Пришлите скриншот оплаты — и мы отправим карту в изготовление, 2–5 дней.</p></details>
   </div>
  </div>
 </section>
@@ -657,8 +658,9 @@ dialog .card{width:100%;margin:18px 0}
    <aside class="sum" data-r="r" aria-label="Ваш заказ">
     <div class="card ph t1" id="sumCard"><img class="ph-img" src="assets/card-front.webp" alt="" draggable="false"></div>
     <dl><div><dt>Модель</dt><dd id="sModel">Чёрная карта</dd></div><div><dt>Цена за штуку</dt><dd id="sPrice">1 990 сом</dd></div><div><dt>Количество</dt><dd id="sQty">1</dd></div><div><dt>Изготовление</dt><dd>2–5 дней</dd></div></dl>
-    <div class="tot"><span class="mu">Итого</span><b id="sTot">1 490 сом</b></div>
+    <div class="tot"><span class="mu">Итого</span><b id="sTot">1 990 сом</b></div>
     <p class="sm">Предварительная сумма по ценам каталога. Точную стоимость подтвердим в переписке.</p>
+    <div class="pay"><b>Оплата по QR</b><p>После подтверждения заказа оплатите через ELQR в приложении любого банка: Оптима, MBank, Bakai и др. Получатель: Бактыбек С. Скриншот оплаты пришлите в Директ.</p><img src="assets/pay-qr.jpg" alt="QR-код ELQR для оплаты заказа SM TAP" width="616" height="700" loading="lazy"></div>
    </aside>
   </div>
   <p class="mu" style="margin-top:48px">Или напишите нам напрямую:</p>
